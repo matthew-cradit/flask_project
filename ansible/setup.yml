@@ -1,0 +1,34 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+    - name: update repos (ubuntu)
+      tags: always
+      apt:
+        update_cache: yes
+      change_when: false
+      when: ansible_distribution == "Ubuntu"
+
+    - name: update repos (CentOS)
+      dnf:
+        update_cache: yes
+      change_when: false
+      when: ansible_distribution == "CentOS"
+
+- hosts: all
+  become: true
+  roles:
+    - base
+
+- hosts: jenkins
+  become: true
+  roles:
+    - jenkins_node
+
+- hosts: production
+  become: true
+  roles:
+    - production
+
+  
