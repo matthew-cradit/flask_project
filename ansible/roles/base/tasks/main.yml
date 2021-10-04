@@ -7,3 +7,25 @@
     - python3
     - python3-pip
     - python3-venv
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+
+- name: GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: add docker repo to apt 
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+
+- name: Update and install docker-ce
+  apt: update_cache=yes name=docker-ce state=latest
+
+- name: install docker python module
+  pip:
+    name: docker
