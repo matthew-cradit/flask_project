@@ -4,23 +4,26 @@
     update_cache: yes
 
 - name: install java
-  become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: openjdk-11-jdk
     state: present
-  with_items:
-    - openjdk-11-jdk
-
+ 
 - name: ensure jenkins apt repo key is present
-  apt-key: url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+  apt_key: 
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io.key 
+    state: present
   become: yes
 
 - name: config repo 
-  apt_repository: repo:'deb https://pkg.jenkins.io/debian-stable binary/' state=present
+  apt_repository: 
+    repo: 'deb https://pkg.jenkins.io/debian-stable binary/' 
+    state: present
   become: yes
 
 - name: install jenkins
-  apt: name=jenkins update_cache=yes
+  apt: 
+    name: jenkins 
+    update_cache: yes
   become: yes
 
 - name: jenkins status check 
