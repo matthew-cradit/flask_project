@@ -12,6 +12,7 @@
     - curl
     - gnupg-agent
     - software-properties-common
+    - openjdk-11-jdk
 
 - name: GPG key
   apt_key:

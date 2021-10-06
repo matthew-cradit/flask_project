@@ -1,1 +1,7 @@
 //start of jenkins file
+
+node(){
+	stage("test1"){
+		print("hello Hello")
+	}
+{
