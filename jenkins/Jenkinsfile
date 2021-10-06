@@ -1,7 +1,8 @@
-//start of jenkins file
-
-node(){
-	stage("test1"){
-		sh "echo hello"
+pipeline{ 
+	agent any 
+	stages {
+		steps{
+			sh "echo hello"
+		}
 	}
-{
+}
