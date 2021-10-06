@@ -13,7 +13,7 @@ pipeline{
 				discordSend description: "Flask_project (ノಠ益ಠ)ノ彡┻━┻ \n\n job: $JOB_NAME \n status: ${currentBuild.currentResult} \n BuildID: $BUILD_ID", 
     			footer: "End of transmission",
 					link: env.BUILD_URL,
-					result: currentBuild.currentresult,
+					result: currentBuild.currentResult,
 					thumbnail: 'https://cdn.discordapp.com/attachments/859942982425378817/862792459900944415/jenkins-icon-Matthew-Cradit.png',
 					title: JOB_NAME,
 					webhookURL: 'https://discord.com/api/webhooks/895426487321260033/91k6f2O-eEnANwLZbXPjhAoSEqSyNgWFC2gfgw5qHGhWogzGR3IukQw9T8OXD0ViORg9'
