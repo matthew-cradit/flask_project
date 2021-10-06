@@ -1,6 +1,24 @@
 ---
 
 - hosts: all
+  become: true 
+  pre_tasks:
+    
+    - name: update repos (CentrOS)
+      tags: always
+      dnf:
+        update_cache: yes
+      
+      when: ansible_distribution == "CentOS"
+
+    - name: update repos (Ubuntu)
+      tags: always
+      apt:
+        update_cache: yes
+        #change_when: false
+      when: ansible_distribution == "Ubuntu"
+      
+- hosts: all
   become: true
   roles:
     - base
@@ -13,6 +31,14 @@
 - hosts: production
   become: true
   roles:
-    - production
+    - k8_master
+
+- hosts: production
+  become: true
+  roles:
+    - k8_worker
+
+
+
 
   
