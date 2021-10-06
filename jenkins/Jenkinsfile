@@ -16,7 +16,7 @@ pipeline{
 					result: currentBuild.currentresult,
 					thumbnail: 'https://cdn.discordapp.com/attachments/859942982425378817/862792459900944415/jenkins-icon-Matthew-Cradit.png',
 					title: JOB_NAME,
-				webhooURL: 'https://discord.com/api/webhooks/895426487321260033/91k6f2O-eEnANwLZbXPjhAoSEqSyNgWFC2gfgw5qHGhWogzGR3IukQw9T8OXD0ViORg9'
+					webhookURL: 'https://discord.com/api/webhooks/895426487321260033/91k6f2O-eEnANwLZbXPjhAoSEqSyNgWFC2gfgw5qHGhWogzGR3IukQw9T8OXD0ViORg9'
 			}
 		}
 	}
