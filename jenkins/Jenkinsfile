@@ -2,6 +2,6 @@
 
 node(){
 	stage("test1"){
-		print("hello Hello")
+		sh "echo hello"
 	}
 {
