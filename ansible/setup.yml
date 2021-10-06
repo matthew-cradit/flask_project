@@ -33,7 +33,7 @@
   roles:
     - k8_master
 
-- hosts: production
+- hosts: k8_workers
   become: true
   roles:
     - k8_worker
