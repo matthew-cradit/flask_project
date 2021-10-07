@@ -2,6 +2,12 @@ pipeline{
 	agent any
 
 	stages {
+
+		stage('pre-task'){
+			steps{
+				sh 'echo $USER'
+			}
+		}
 		stage('build python code'){
 			agent{
 				docker{
