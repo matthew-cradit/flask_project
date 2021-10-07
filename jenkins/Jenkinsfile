@@ -1,7 +1,13 @@
 pipeline{ 
-	agent agent_1 
+	agent any
+
 	stages {
 		stage('build python code'){
+			agent{
+				docker{
+					image 'python:2-alpine'
+				}
+			}
 			steps{
 				sh 'python3 -m py_compile sources/web_app.py'
 				stash(name: 'compiled-results', includes:'sources/*.py*')
