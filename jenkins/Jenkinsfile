@@ -1,5 +1,5 @@
 pipeline{ 
-	agent any
+	agent none
 
 	stages {
 		stage('build python code'){
@@ -30,8 +30,10 @@ pipeline{
 			}
 		}
 
-		stage('notification'){
-			steps{
+		
+		}
+		post{
+			always{
 				withCredentials([string(credentialsId: 'Discord_webhook_ks', variable: 'discord_webhook_url')]) {
 					
 					
@@ -42,6 +44,7 @@ pipeline{
 						thumbnail: 'https://cdn.discordapp.com/attachments/859942982425378817/862792459900944415/jenkins-icon-Matthew-Cradit.png', 
 						title: JOB_NAME, webhookURL: "$discord_webhook_url"
 				}
+
 			}
 		}
 	}
