@@ -6,6 +6,7 @@ pipeline{
 		stage('pre-task'){
 			steps{
 				sh 'echo $USER'
+				sh 'grep /etc/group -e "docker"'
 			}
 		}
 		stage('build python code'){
