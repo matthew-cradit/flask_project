@@ -11,7 +11,7 @@ pipeline{
 		stage('notification'){
 			steps{
 				withCredentials([string(credentialsId: 'Discord_webhook_ks', variable: 'discord_webhook_url')]) {
-					discordSend description: "Flask_project (ノಠ益ಠ)ノ彡┻━┻ \n\n job: $JOB_NAME \n status: ${currentBuild.currentResult} \n BuildID: $BUILD_ID", 
+					discordSend description: "Flask_project (ノಠ益ಠ)ノ彡┻━┻ \n\ngit commit: ${GIT_COMMIT}\n job: $JOB_NAME \n status: ${currentBuild.currentResult} \n BuildID: $BUILD_ID", 
     				footer: "End of transmission",
 						link: env.BUILD_URL,
 						result: currentBuild.currentResult,
