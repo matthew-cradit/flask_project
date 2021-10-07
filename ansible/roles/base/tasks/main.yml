@@ -30,3 +30,9 @@
 - name: install docker python module
   pip:
     name: docker
+
+- name: add users to docker group
+  ansible.builtin.user:
+    name: ubuntu
+    group: docker
+
