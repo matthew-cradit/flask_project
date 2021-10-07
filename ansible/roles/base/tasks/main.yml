@@ -39,7 +39,6 @@
   with_items:
     - ubuntu
     - jenkins
-- name: restart docker
-  ansible.builtin.service:
-    name: docker
-    state: restarted
+- name: reboot systems
+  ansible.builtin.reboot:
+    
