@@ -33,6 +33,10 @@
 
 - name: add users to docker group
   ansible.builtin.user:
-    name: ubuntu
-    group: docker
+    name: "{{ item }}"
+    groups: docker
+    state: present
+  with_items:
+    - ubuntu
+    - jenkins
 
