@@ -1,5 +1,5 @@
 pipeline{ 
-	agent worker_node_1 
+	agent agent_1 
 	stages {
 		stage('build python code'){
 			steps{
