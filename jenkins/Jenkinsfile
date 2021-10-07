@@ -24,12 +24,11 @@ pipeline{
 		stage('test code'){
 			agent{
 				docker{
-					image 'qnib/pytest'
+					image 'mc993/flask-pytest'
 				}
 			}
 			steps{
-				sh 'pip install --upgrade pip'
-				sh 'pip install -r sources/requirements.txt'
+				
 				sh 'py.test --junit-xml test-reports/results.xml sources/test_web_app.py'
 			}
 			post{
