@@ -12,14 +12,13 @@ pipeline{
 			steps{
 				withCredentials([string(credentialsId: 'Discord_webhook_ks', variable: 'discord_webhook_url')]) {
 					
-					def git_message = { git log --format="medium" -1 ${GIT_COMMIT};};
-					discordSend description: "Flask_project (ノಠ益ಠ)ノ彡┻━┻ \n\n git commit: {git_message.call()} \n job: $JOB_NAME \n status: ${currentBuild.currentResult} \n BuildID: $BUILD_ID", 
-    				footer: "End of transmission",
+					
+					discordSend description: "Flask_project (ノಠ益ಠ)ノ彡┻━┻ \n\n git commit: ${GIT_COMMIT} \n job: $JOB_NAME \n status: ${currentBuild.currentResult} \n BuildID: $BUILD_ID",
+						footer: "End of transmission", 
 						link: env.BUILD_URL,
-						result: currentBuild.currentResult,
-						thumbnail: 'https://cdn.discordapp.com/attachments/859942982425378817/862792459900944415/jenkins-icon-Matthew-Cradit.png',
-						title: JOB_NAME,
-						webhookURL: "$discord_webhook_url"
+						result: currentBuild.currentResult, 
+						thumbnail: 'https://cdn.discordapp.com/attachments/859942982425378817/862792459900944415/jenkins-icon-Matthew-Cradit.png', 
+						title: JOB_NAME, webhookURL: "$discord_webhook_url"
 				}
 			}
 		}
