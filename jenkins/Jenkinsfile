@@ -30,7 +30,12 @@ pipeline{
 			}
 		}
 
-		
+		stage('notification'){
+			agent any
+
+			steps{
+				sh "echo 'sending notifications'"
+			}
 		}
 		post{
 			always{
@@ -44,8 +49,8 @@ pipeline{
 						thumbnail: 'https://cdn.discordapp.com/attachments/859942982425378817/862792459900944415/jenkins-icon-Matthew-Cradit.png', 
 						title: JOB_NAME, webhookURL: "$discord_webhook_url"
 				}
-
 			}
 		}
 	}
+}
 
