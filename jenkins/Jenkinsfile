@@ -1,11 +1,13 @@
 //varialbes 
-def scannerHome = tool 'SonarScanner 4.4.0.2170';	
+//def scannerHome = tool 'SonarScanner 4.4.0.2170';	
 
 pipeline{ 
 	agent {
 		label 'worker_node_1'
 	}
-
+	enviroment{
+		scannerHome = tool 'SonarScanner 4.4.0.2170'
+	}
 	stages {
 		
 		stage('static analysis'){
