@@ -1,3 +1,6 @@
+//varialbes 
+def scannerHome = tool 'SonarScanner 4.4.0.2170';	
+
 pipeline{ 
 	agent {
 		label 'worker_node_1'
@@ -7,7 +10,7 @@ pipeline{
 		
 		stage('static analysis'){
 			steps {
-				def scannerHome = tool 'SonarScanner 4.4.0.2170';	
+				//def scannerHome = tool 'SonarScanner 4.4.0.2170';	
 				withSonarQubeEnv('sonarcloud_1') {
 					
     			sh '''
