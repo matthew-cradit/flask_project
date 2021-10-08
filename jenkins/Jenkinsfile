@@ -7,7 +7,7 @@ pipeline{
 		
 		stage('static analysis'){
 			steps {	
-				withSonarQubeEnv('sonar_1', credentialsId: 'sonar_1') {
+				withSonarQubeEnv(credentialsId: 'sonar_1') {
     			sh '''
 					sonar-scanner \
   					-Dsonar.organization=matthew-cradit-1 \
