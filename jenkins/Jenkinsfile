@@ -18,7 +18,7 @@ pipeline{
 				withSonarQubeEnv('sonarcloud_1') {
 					
     			sh '''
-					${env.SCANNERHOME}/bin/sonar-scanner \
+					${SCANNERHOME}/bin/sonar-scanner \
   					-Dsonar.organization=matthew-cradit-1 \
   					-Dsonar.projectKey=matthew-cradit_flask_project \
   					-Dsonar.sources=. \
