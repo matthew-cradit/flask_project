@@ -8,11 +8,13 @@ pipeline{
 		stage('static analysis'){
 			
 			withSonarQubeEnv('sonar_1', credentialsId: 'sonar_1') {
-    		sonar-scanner \
+    		sh '''
+				sonar-scanner \
   				-Dsonar.organization=matthew-cradit-1 \
   				-Dsonar.projectKey=matthew-cradit_flask_project \
-  				-Dsonar.sources=./sources \
-  				-Dsonar.host.url=https://sonarcloud.io 
+  				-Dsonar.sources=. \
+  				-Dsonar.host.url=https://sonarcloud.io
+				'''
 			}	
 		}
 		stage('build python code'){
