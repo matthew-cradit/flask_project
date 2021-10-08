@@ -27,6 +27,13 @@ pipeline{
 				}
 			}	
 		}
+
+		stage('wait for quality gate'){
+			steps{
+				waitForQualityGate abortPipeline: true
+			}
+		}
+		
 		stage('build python code'){
 			agent{
 				docker{
