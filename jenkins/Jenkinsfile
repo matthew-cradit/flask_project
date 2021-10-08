@@ -5,18 +5,20 @@ pipeline{
 	agent {
 		label 'worker_node_1'
 	}
-	enviroment{
-		scannerHome = tool 'SonarScanner 4.4.0.2170'
-	}
+	
 	stages {
 		
 		stage('static analysis'){
+			enviroment {
+				SCANNERHOME =  tool 'SonarScanner 4.4.0.2170'
+
+			}
 			steps {
 				//def scannerHome = tool 'SonarScanner 4.4.0.2170';	
 				withSonarQubeEnv('sonarcloud_1') {
 					
     			sh '''
-					${scannerHome}/bin/sonar-scanner \
+					${env.SCANNERHOME}/bin/sonar-scanner \
   					-Dsonar.organization=matthew-cradit-1 \
   					-Dsonar.projectKey=matthew-cradit_flask_project \
   					-Dsonar.sources=. \
