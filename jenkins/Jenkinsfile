@@ -10,7 +10,7 @@ pipeline{
 		
 		stage('static analysis'){
 			environment {
-				SCANNERHOME =  tool 'SonarScanner 4.4.0.2170'
+				SCANNERHOME =  tool 'Sonar_1'
 
 			}
 			steps {
