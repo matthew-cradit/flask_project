@@ -11,7 +11,7 @@ pipeline{
     		sonar-scanner \
   				-Dsonar.organization=matthew-cradit-1 \
   				-Dsonar.projectKey=matthew-cradit_flask_project \
-  				-Dsonar.sources=. \
+  				-Dsonar.sources=./sources \
   				-Dsonar.host.url=https://sonarcloud.io 
 			}	
 		}
