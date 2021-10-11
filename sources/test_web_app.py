@@ -9,3 +9,9 @@ def test_connection():
 
     assert response.status_code == 200
     assert response.data == b'<p>Hello, World!</p>'
+
+
+    response = app.test_client().get('/test')
+
+    assert response.status_code == 200
+    assert response.data == b'<h>THIS IS A TEST</h>'
