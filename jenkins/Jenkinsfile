@@ -17,7 +17,7 @@ pipeline{
 			environment{
 				USER_NAME='test'
 				USER_PASS='test'
-				FLASK_APP=flaskr
+				FLASK_APP='flaskr'
 			}
 		
 			steps{
