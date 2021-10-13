@@ -21,7 +21,7 @@ pipeline{
 		
 			steps{
 				sh 'cd sources'							
-				sh 'pytest --junit-xml test-reports/results.xml sources/'
+				sh 'pytest --junit-xml test-reports/results.xml '
 			}
 			post{
 				always{
