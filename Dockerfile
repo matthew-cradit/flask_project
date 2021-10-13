@@ -6,6 +6,7 @@ RUN wget -qO /usr/local/bin/qcoverage  https://github.com/qnib/qcoverage/release
  && chmod +x /usr/local/bin/qcoverage
 
 
-COPY ./requirements.txt ./pip_req/requirements.txt
-RUN pip install -r /pip_req/requirements.txt
+COPY ./sources/ ./flask_project
+RUN cd flask_project/ && ls -lrt
+RUN pip install -r ./flask_project/requirements.txt
 
