@@ -11,7 +11,7 @@ pipeline{
 		stage('test code'){
 			agent{
 				docker{
-					image 'mc993/flask-pytest:0.0.2'
+					image 'mc993/flask-pytest:0.0.3'
 				}
 			}
 			environment{
