@@ -20,9 +20,9 @@ pipeline{
 			}
 		
 			steps{
-				sh 'cd sources && pwd'	
+					
 				sh 'export FLASK_APP=flaskr'
-				sh 'pytest --junit-xml test-reports/results.xml '
+				sh 'python3 -m pytest --junit-xml test-reports/results.xml '
 			}
 			post{
 				always{
