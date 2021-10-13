@@ -20,7 +20,7 @@ pipeline{
 			}
 		
 			steps{
-				sh 'ls -lrt'							
+				sh 'cd sources'							
 				sh 'pytest --junit-xml test-reports/results.xml sources/'
 			}
 			post{
