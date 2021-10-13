@@ -20,7 +20,7 @@ pipeline{
 			}
 		
 			steps{
-				sh 'cd sources'	
+				sh 'cd sources && pwd'	
 				sh 'export FLASK_APP=flaskr'
 				sh 'pytest --junit-xml test-reports/results.xml '
 			}
