@@ -7,7 +7,29 @@ pipeline{
 	}
 	
 	stages {
+	
+		stage('test code'){
+			agent{
+				docker{
+					image 'mc993/flask-pytest:0.0.2'
+				}
+			}
+			environment{
+				USER_NAME='test'
+				USER_PASS='test'
+			}
 		
+			steps{
+											
+				sh 'py.test --junit-xml test-reports/results.xml sources/test_web_app.py'
+			}
+			post{
+				always{
+					junit 'test-reports/results.xml'
+				}
+			}
+		}
+	
 		stage('static analysis'){
 			environment {
 				SCANNERHOME =  tool 'Sonar_1'
@@ -33,40 +55,7 @@ pipeline{
 				waitForQualityGate abortPipeline: true
 			}
 		}
-		
-		stage('build python code'){
-			agent{
-				docker{
-					image 'python:3-alpine'
-				}
-			}
-			steps{
-				sh 'python -m py_compile sources/web_app.py'
-				stash(name: 'compiled-results', includes:'sources/*.py*')
-			}
-		}
 
-		stage('test code'){
-			agent{
-				docker{
-					image 'mc993/flask-pytest:0.0.2'
-				}
-			}
-			environment{
-				USER_NAME='test'
-				USER_PASS='test'
-			}
-		
-			steps{
-											
-				sh 'py.test --junit-xml test-reports/results.xml sources/test_web_app.py'
-			}
-			post{
-				always{
-					junit 'test-reports/results.xml'
-				}
-			}
-		}
 	}
 	post{
 		always {
