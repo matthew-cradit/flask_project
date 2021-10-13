@@ -1,7 +1,7 @@
 attrs==21.2.0
-click==8.0.1
+click==8.0.3
 Flask==2.0.2
-Flask-WTF==0.15.1
+-e git+https://github.com/matthew-cradit/flask_project.git@1197d8c0fe7bb209b73d2b719ce2a5ac1932554d#egg=flaskr&subdirectory=sources
 iniconfig==1.1.1
 itsdangerous==2.0.1
 Jinja2==3.0.2
@@ -13,4 +13,3 @@ pyparsing==2.4.7
 pytest==6.2.5
 toml==0.10.2
 Werkzeug==2.0.2
-WTForms==2.3.3
