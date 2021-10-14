@@ -22,7 +22,7 @@ pipeline{
 				sh ' pip install pytest flask'
 				sh ' python3 -m flask init-db'
 				sh ' python3 -m pytest --junit-xml test-reports/results.xml  '
-				sh ' deactivate'
+				
 			}
 			post { 
 				always{
