@@ -12,12 +12,8 @@ pipeline{
 			agent{
 				docker{
 					image 'mc993/flask-pytest:0.0.3'
+					args '-e USER_NAME=test -e USER_PASS=test -e FLASK_APP=flaskr' 
 				}
-			}
-			environment{
-				USER_NAME='test'
-				USER_PASS='test'
-				FLASK_APP='flaskr.py'
 			}
 		
 			steps{
