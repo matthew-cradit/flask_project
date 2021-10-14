@@ -19,6 +19,7 @@ pipeline{
 				sh 'ls -lrt'
 				//sh '/usr/bin/bash source $pwd/venv/bin/activate'
 				sh ' pip install -e ./sources'
+				sh ' pip install pytest'
 				sh ' python3 -m pytest --junit-xml test-reports/results.xml  '
 				sh ' deactivate'
 			}
