@@ -19,7 +19,7 @@ pipeline{
 				sh 'ls -lrt'
 				//sh '/usr/bin/bash source $pwd/venv/bin/activate'
 				sh ' pip install -e ./sources'
-				sh ' pip install pytest'
+				sh ' pip install pytest flask'
 				sh ' python3 -m flask init-db'
 				sh ' python3 -m pytest --junit-xml test-reports/results.xml  '
 				sh ' deactivate'
