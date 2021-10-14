@@ -16,7 +16,6 @@ pipeline{
 			}
 
 			steps{
-				sh ' python3 -m venv venv'
 				sh 'ls -lrt'
 				sh ' source venv/bin/activate'
 				sh ' pip install -e ./sources'
