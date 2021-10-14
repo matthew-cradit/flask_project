@@ -27,7 +27,7 @@ pipeline{
 					junit ' test-reports/results.xml'
 				}
 			}
-	
+		}	
 		stage('static analysis'){
 			environment {
 				SCANNERHOME =  tool 'Sonar_1'
